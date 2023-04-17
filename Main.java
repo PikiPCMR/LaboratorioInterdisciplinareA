@@ -1,8 +1,13 @@
 public class Main {
-  public static void main(String[] args) 
+  public static void main(String[] args) throws IOException
   {
-    System.out.println("vediamo come funziona");
-    int x;
-    System.out.println("353 + 45");
+    Files.lines(path)
+    .skip(1)
+    .map( line -> 
+    { 
+      String[] fields = line.split(",");
+      return new smartphone(Integer.parseInt(fields[0], fields[1], fields[2]));
+    })
+    .forEach(Sysyem.out::println);
   }
 }
