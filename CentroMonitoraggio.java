@@ -39,6 +39,8 @@ public class CentroMonitoraggio {
                 String[] data = line.split(CSV_SEPARATOR);
                 
                 // Verifica se il geoname corrisponde all'area di interesse nel file CSV
+                // Assumi che il geoname sia nella prima colonna (indice 0) del file CSV
+                // Puoi modificare l'indice in base alla posizione effettiva nel tuo file
                 if (data.length >= 1 && data[0].equals(geoname)) {
                     return true;
                 }
