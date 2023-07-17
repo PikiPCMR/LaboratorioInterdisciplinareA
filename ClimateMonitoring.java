@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class SchermataIniziale {
-    private static final String FILE_PATH = "utenti.csv";
+    private static final String FILE_PATH = "operatori-registrati.csv";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
