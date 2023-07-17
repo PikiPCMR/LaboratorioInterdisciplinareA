@@ -78,7 +78,8 @@ public class ClimateMonitoring extends CentroMonitoraggio{
         
         if (loginRiuscito) {
             System.out.println("Login effettuato con successo.");
-            registraCentroAree();
+            boolean continua = false;
+            registraCentroAree(userID);
             // Esegui le operazioni dopo il login
         } else {
             System.out.println("Credenziali non valide.");
