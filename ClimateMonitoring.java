@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ClimateMonitoring {
+public class ClimateMonitoring extends CentroMonitoraggio{
     private static final String CSV_FILE = "operatori-registrati.csv";
     private static final String CSV_SEPARATOR = ",";
     
@@ -78,6 +78,7 @@ public class ClimateMonitoring {
         
         if (loginRiuscito) {
             System.out.println("Login effettuato con successo.");
+            registraCentroAree();
             // Esegui le operazioni dopo il login
         } else {
             System.out.println("Credenziali non valide.");
