@@ -32,11 +32,19 @@ public class Accesso {
                 scanner.nextLine(); // Consuma la nuova riga dopo nextInt()
 
                 switch (scelta) {
-                    case 1 -> CentroMonitoraggio.registraCentroAree(userID);
-                    case 2 -> CentroMonitoraggio.visualizzaCentriMonitoraggio(userID);
-                    case 3 -> ParametriClimatici.inserisciParametriClimatici(userID);
-                    case 0 -> continua = false;
-                    default -> System.out.println("Scelta non valida.");
+                    case 1:
+                    CentroMonitoraggio.registraCentroAree(userID);
+                    break;
+                    case 2:
+                    CentroMonitoraggio.visualizzaCentriMonitoraggio(userID);
+                    break;
+                    case 3: 
+                    ParametriClimatici.inserisciParametriClimatici(userID);
+                    break;
+                    case 0:
+                    continua = false;
+                    break;
+                    default: System.out.println("Scelta non valida.");
                 }
             }
         } else {
