@@ -10,12 +10,51 @@ public class Ricerca {
     public static final String CSV_PARAMETRI_CLIMATICI = "parametri-climatici.csv";
     public static final String CSV_SEPARATOR = ";";
 
+    public static void main(String[] args) {
+        mostraMenu();
+    }
+
+    public static void mostraMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Benvenuto!");
+            System.out.println("1. Ricerca");
+            System.out.println("2. Login");
+            System.out.println("3. Registrazione");
+            System.out.println("0. Esci");
+            System.out.print("Scelta: ");
+
+            int scelta = scanner.nextInt();
+            scanner.nextLine(); // Consuma la nuova riga
+
+            switch (scelta) {
+                case 1:
+                    cercaAreaGeografica();
+                    break;
+                case 2:
+                    // Aggiungi qui la logica per il login
+                    break;
+                case 3:
+                    // Aggiungi qui la logica per la registrazione
+                    break;
+                case 0:
+                    System.out.println("Arrivederci!");
+                    return;
+                default:
+                    System.out.println("Scelta non valida.");
+                    break;
+            }
+        }
+    }
+
     public static void cercaAreaGeografica() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Seleziona un criterio di ricerca:");
         System.out.println("1. Ricerca per denominazione e stato di appartenenza");
         System.out.println("2. Ricerca per coordinate geografiche");
+        System.out.println("3. Torna al menu principale");
         System.out.print("Scelta: ");
 
         int scelta = scanner.nextInt();
@@ -33,19 +72,20 @@ public class Ricerca {
             if (risultati.isEmpty()) {
                 System.out.println("Nessun risultato trovato per l'area geografica specificata.");
             } else {
-                String[] risultato = risultati.get(0); // Prendi il primo risultato
+                for (String[] risultato : risultati) {
+                    System.out.println("Informazioni sull'area geografica:");
+                    System.out.println("Geoname: " + risultato[0]);
+                    System.out.println("Denominazione: " + risultato[1]);
+                    System.out.println("Stato: " + risultato[2]);
+                    System.out.println("Coordinate: " + risultato[3]);
+                    System.out.println();
 
-                System.out.println("Informazioni sull'area geografica:");
-                System.out.println("Denominazione: " + risultato[0]);
-                System.out.println("Stato: " + risultato[1]);
-                System.out.println("Coordinate: " + risultato[2]);
-                System.out.println();
+                    System.out.print("Vuoi visualizzare l'area geografica? (s/n): ");
+                    String sceltaVisualizza = scanner.nextLine();
 
-                System.out.print("Vuoi visualizzare l'area geografica? (s/n): ");
-                String sceltaVisualizza = scanner.nextLine();
-
-                if (sceltaVisualizza.equalsIgnoreCase("s")) {
-                    visualizzaAreaGeografica(risultato[0]);
+                    if (sceltaVisualizza.equalsIgnoreCase("s")) {
+                        visualizzaParametriClimatici(risultato[0]);
+                    }
                 }
             }
         } else if (scelta == 2) {
@@ -57,21 +97,25 @@ public class Ricerca {
             if (risultati.isEmpty()) {
                 System.out.println("Nessun risultato trovato per le coordinate geografiche specificate.");
             } else {
-                String[] risultato = risultati.get(0); // Prendi il primo risultato
+                for (String[] risultato : risultati) {
+                    System.out.println("Informazioni sull'area geografica:");
+                    System.out.println("Geoname: " + risultato[0]);
+                    System.out.println("Denominazione: " + risultato[1]);
+                    System.out.println("Stato: " + risultato[2]);
+                    System.out.println("Coordinate: " + risultato[3]);
+                    System.out.println();
 
-                System.out.println("Informazioni sull'area geografica:");
-                System.out.println("Denominazione: " + risultato[0]);
-                System.out.println("Stato: " + risultato[1]);
-                System.out.println("Coordinate: " + risultato[2]);
-                System.out.println();
+                    System.out.print("Vuoi visualizzare l'area geografica? (s/n): ");
+                    String sceltaVisualizza = scanner.nextLine();
 
-                System.out.print("Vuoi visualizzare l'area geografica? (s/n): ");
-                String sceltaVisualizza = scanner.nextLine();
-
-                if (sceltaVisualizza.equalsIgnoreCase("s")) {
-                    visualizzaAreaGeografica(risultato[0]);
+                    if (sceltaVisualizza.equalsIgnoreCase("s")) {
+                        visualizzaParametriClimatici(risultato[0]);
+                    }
                 }
             }
+        } else if (scelta == 3) {
+            // Torna al menu principale (uscendo dalla funzione)
+            return;
         } else {
             System.out.println("Scelta non valida.");
         }
@@ -87,10 +131,11 @@ public class Ricerca {
                 String[] data = line.split(CSV_SEPARATOR);
 
                 if (data.length >= 6 && data[2].equalsIgnoreCase(denominazione) && data[4].equalsIgnoreCase(stato)) {
-                    String[] risultato = new String[3];
-                    risultato[0] = data[1]; // Denominazione
-                    risultato[1] = data[4]; // Stato
-                    risultato[2] = data[5]; // Coordinate
+                    String[] risultato = new String[4];
+                    risultato[0] = data[0]; // Geoname
+                    risultato[1] = data[2]; // Denominazione
+                    risultato[2] = data[4]; // Stato
+                    risultato[3] = data[5]; // Coordinate
                     risultati.add(risultato);
                 }
             }
@@ -111,10 +156,11 @@ public class Ricerca {
                 String[] data = line.split(CSV_SEPARATOR);
 
                 if (data.length >= 6 && data[5].equalsIgnoreCase(coordinate)) {
-                    String[] risultato = new String[3];
-                    risultato[0] = data[1]; // Denominazione
-                    risultato[1] = data[4]; // Stato
-                    risultato[2] = data[5]; // Coordinate
+                    String[] risultato = new String[4];
+                    risultato[0] = data[0]; // Geoname
+                    risultato[1] = data[2]; // Denominazione
+                    risultato[2] = data[4]; // Stato
+                    risultato[3] = data[5]; // Coordinate
                     risultati.add(risultato);
                 }
             }
@@ -125,26 +171,39 @@ public class Ricerca {
         return risultati;
     }
 
-    private static void visualizzaAreaGeografica(String areaGeografica) {
-        List<String[]> parametriClimatici = getParametriClimatici(areaGeografica);
+    private static void visualizzaParametriClimatici(String geoname) {
+        List<String[]> parametriClimatici = getParametriClimatici(geoname);
 
         if (parametriClimatici.isEmpty()) {
             System.out.println("Non sono disponibili dati sui parametri climatici per questa area.");
         } else {
-            System.out.println("Parametri climatici per l'area " + areaGeografica + ":");
+            System.out.println("Il file parametri-climatici.csv contiene questi valori per il geoname " + geoname + ":");
             System.out.println();
 
             for (String[] parametro : parametriClimatici) {
-                System.out.println("Parametro: " + parametro[0]);
-                System.out.println("Numero di rilevazioni: " + parametro[1]);
-                System.out.println("Statistica del punteggio: " + parametro[2]);
-                System.out.println("Commenti degli operatori: " + parametro[3]);
+                String idParametro = parametro[1];
+                String vento = parametro[2];
+                String umidita = parametro[3];
+                String pressione = parametro[4];
+                String temperatura = parametro[5];
+                String precipitazioni = parametro[6];
+                String altitudineGhiacciai = parametro[7];
+                String massaGhiacciai = parametro[8];
+
+                System.out.println("Geoname: " + idParametro);
+                System.out.println("Vento: " + vento);
+                System.out.println("Umidità: " + umidita);
+                System.out.println("Pressione: " + (pressione.equals("null") ? "non specificato" : pressione));
+                System.out.println("Temperatura: " + temperatura);
+                System.out.println("Precipitazioni: " + precipitazioni);
+                System.out.println("Altezza dei ghiacciai: " + altitudineGhiacciai);
+                System.out.println("Massa dei ghiacciai: " + massaGhiacciai);
                 System.out.println();
             }
         }
     }
 
-    private static List<String[]> getParametriClimatici(String areaGeografica) {
+    private static List<String[]> getParametriClimatici(String geoname) {
         List<String[]> risultati = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(CSV_PARAMETRI_CLIMATICI))) {
@@ -153,12 +212,11 @@ public class Ricerca {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(CSV_SEPARATOR);
 
-                if (data.length >= 2 && data[1].equals(areaGeografica)) {
-                    String[] risultato = new String[4];
-                    risultato[0] = data[2]; // Parametro
-                    risultato[1] = getNumeroRilevazioni(areaGeografica, data[2]); // Numero di rilevazioni
-                    risultato[2] = getStatisticaPunteggio(areaGeografica, data[2]); // Statistica del punteggio
-                    risultato[3] = getCommentiOperatori(areaGeografica, data[2]); // Commenti degli operatori
+                if (data.length >= 2 && data[1].equals(geoname)) {
+                    String[] risultato = new String[9];
+                    for (int i = 0; i < data.length; i++) {
+                        risultato[i] = data[i].equals("null") ? "non specificato" : data[i];
+                    }
                     risultati.add(risultato);
                 }
             }
@@ -168,57 +226,4 @@ public class Ricerca {
 
         return risultati;
     }
-
-    private static String getNumeroRilevazioni(String areaGeografica, String parametro) {
-        int count = 0;
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_PARAMETRI_CLIMATICI))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(CSV_SEPARATOR);
-
-                if (data.length >= 2 && data[1].equals(areaGeografica) && data[2].equals(parametro)) {
-                    count++;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return String.valueOf(count);
-    }
-
-    private static String getStatisticaPunteggio(String areaGeografica, String parametro) {
-        // Calcola e restituisci la statistica del punteggio per l'area e il parametro specificati
-        // Puoi implementare la logica per calcolare la statistica adeguata
-        return "Statistica del punteggio";
-    }
-
-    private static String getCommentiOperatori(String areaGeografica, String parametro) {
-        StringBuilder commenti = new StringBuilder();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_PARAMETRI_CLIMATICI))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(CSV_SEPARATOR);
-
-                if (data.length >= 2 && data[1].equals(areaGeografica) && data[2].equals(parametro)) {
-                    // Aggiungi i commenti degli operatori separati da una virgola
-                    if (data.length >= 4) {
-                        if (commenti.length() > 0) {
-                            commenti.append(", ");
-                        }
-                        commenti.append(data[3]);
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return commenti.toString();
-    }
 }
-
