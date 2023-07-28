@@ -1,9 +1,15 @@
 /**
- * Crea l'interfaccia iniziale che ci permette di eseguire le operazioni presenti nel resto del codice implementato per la realizzazione del progetto,
+ * Crea l'interfaccia iniziale che ci permette di eseguire le operazioni presenti
+ * nel resto del codice implementato per la realizzazione del progetto,
+ * 
  * infatti attraverso dei semplici comandi numerici potremo:
- *  1) ricercare un luogo del mondo preregistrato per ottenerne le informazione fondamenteali;
- *  2) effettuare il login al nostro profilo creato con la funzione "3", registrazione, per poi registrare o modificare i dati immessi relativi a un luogo non presente nel file 
- *  3) effettuare la registrazione creando un profilo con il quale sarà poi possibile effettuare il login "2".
+ *  1) ricercare un luogo del mondo preregistrato per ottenerne le informazione
+ *       fondamenteali;
+ *  2) effettuare il login al nostro profilo creato con la funzione "3", registrazione,
+ *       per poi registrare o modificare i dati immessi relativi a un luogo non presente
+ *       nel file; 
+ *  3) effettuare la registrazione creando un profilo con il quale sarà poi possibile 
+ *      effettuare il login "2".
  *
  * @author tag da inserire
  * 
@@ -17,7 +23,7 @@ public class Main {
     /**
      * Metodo principale che avvia l'esecuzione del programma.
      *
-     * @param args Argomenti passati dalla riga di comando (non utilizzati in questo caso).
+     * @param <args> Argomenti passati dalla riga di comando (non utilizzati in questo caso).
      */
 
 
