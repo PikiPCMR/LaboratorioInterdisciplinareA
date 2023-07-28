@@ -15,9 +15,12 @@ import java.io.*;
 
 public class Accesso {
 
-     // Costanti per il file CSV e il separatore di campo.
+     /** Costanti per il file CSV e il separatore di campo.*/
     
     private static final String CSV_FILE = "operatori-registrati.csv";
+   
+     /** Separatore utilizzato nel file CSV. */
+   
     private static final String CSV_SEPARATOR = ";";
     
     /**
