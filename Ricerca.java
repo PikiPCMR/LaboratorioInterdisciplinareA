@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 /**
  * La classe Ricerca gestisce operazioni di ricerca, login e registrazione.
+ *@author Alessandro Borges
+ *@author Nicola Pichierri
+ *@author Francesco Scolaro
+ *@author Luca Tagliabue
+ 
  */
 
 public class Ricerca {

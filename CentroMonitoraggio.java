@@ -6,8 +6,10 @@ import java.util.*;
  * e visualizzazione dei centri di monitoraggio e delle relative
  * aree di interesse.
  * 
- * @author inserire tag degli autori
- * 
+ *@author Alessandro Borges
+ *@author Nicola Pichierri
+ *@author Francesco Scolaro
+ *@author Luca Tagliabue
  */
 
 public class CentroMonitoraggio {

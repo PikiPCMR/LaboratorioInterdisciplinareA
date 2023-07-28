@@ -11,7 +11,10 @@
  *  3) effettuare la registrazione creando un profilo con il quale sarà poi possibile 
  *      effettuare il login "2".
  *
- * @author tag da inserire
+ *@author Alessandro Borges
+ *@author Nicola Pichierri
+ *@author Francesco Scolaro
+ *@author Luca Tagliabue
  * 
  */
 

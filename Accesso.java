@@ -8,8 +8,10 @@ import java.io.*;
     * Utilizza un file CSV "operatori-registrati.csv" come sorgente di dati per
     * memorizzare e verificare le credenziali.
     * 
-    * @author inserire tag degli autori
-    * 
+    * @author Alessandro Borges
+    * @author Nicola Pichierri
+    * @author Francesco Scolaro
+    * @author Luca Tagliabue
     */
 
 

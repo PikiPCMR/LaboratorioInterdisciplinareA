@@ -4,6 +4,12 @@ import java.util.*;
 /**
  * La classe ParametriClimatici gestisce l'inserimento dei parametri climatici
  * per i geonames di un determinato operatore.
+ * 
+ *@author Alessandro Borges
+ *@author Nicola Pichierri
+ *@author Francesco Scolaro
+ *@author Luca Tagliabue
+ * 
  */
 
 public class ParametriClimatici {
