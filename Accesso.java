@@ -4,8 +4,9 @@ import java.io.*;
 
     /**
     * La classe Accesso gestisce le operazioni di login e registrazione degli utenti.
-    * Utilizza un file CSV "operatori-registrati.csv" come sorgente di dati per memorizzare e verificare
-    * le credenziali.
+    * 
+    * Utilizza un file CSV "operatori-registrati.csv" come sorgente di dati per
+    * memorizzare e verificare le credenziali.
     * 
     * @author inserire tag degli autori
     * 
@@ -13,13 +14,17 @@ import java.io.*;
 
 
 public class Accesso {
+
      // Costanti per il file CSV e il separatore di campo.
+    
     private static final String CSV_FILE = "operatori-registrati.csv";
     private static final String CSV_SEPARATOR = ";";
     
     /**
      * Esegue l'operazione di login per un utente.
-     * Richiede l'inserimento di UserID e Password e verifica le credenziali tramite il metodo verificaCredenziali.
+     * 
+     * Richiede l'inserimento di UserID e Password e verifica le credenziali tramite
+     * il metodo verificaCredenziali.
      * Se il login ha successo, mostra un menu con le opzioni disponibili.
      * L'utente può scegliere tra le seguenti opzioni:
      * 1) Registra Centro Aree;
@@ -37,7 +42,7 @@ public class Accesso {
         System.out.print("Password: ");
         String password = scanner.nextLine();
 
-        // Verifica le credenziali nel file CSV o in un'altra fonte di dati
+        // Verifica le credenziali nel file CSV "operatori-registrati.csv".
         
         boolean loginRiuscito = verificaCredenziali(userID, password);
 
@@ -79,6 +84,7 @@ public class Accesso {
     }
         /**
         * Esegue l'operazione di registrazione di un nuovo utente.
+        * 
         * Richiede l'inserimento di Nome e Cognome, Codice Fiscale, Email, UserID e Password.
         * Salva le credenziali nel file CSV "operatori-registrati.csv" tramite il metodo salvaCredenziali.
         * Se la registrazione ha successo, mostra un messaggio di conferma.
@@ -116,8 +122,8 @@ public class Accesso {
     /**
      * Verifica le credenziali dell'utente nel file CSV.
      *
-     * @param userID   Il UserID inserito dall'utente per il login.
-     * @param password La password inserita dall'utente per il login.
+     * @param <userID>   Il UserID inserito dall'utente per il login.
+     * @param <password> La password inserita dall'utente per il login.
      * @return true se le credenziali corrispondono a un utente registrato, false altrimenti.
      */
 
@@ -144,11 +150,11 @@ public class Accesso {
      /**
       * Salva le credenziali di un nuovo utente nel file CSV.
       *
-      * @param nomeCognome Il Nome e Cognome dell'utente da registrare.
-      * @param codFisc     Il Codice Fiscale dell'utente da registrare.
-      * @param email       L'Email dell'utente da registrare.
-      * @param userID      Il UserID dell'utente da registrare.
-      * @param password    La Password dell'utente da registrare.
+      * @param <nomeCognome> Il Nome e Cognome dell'utente da registrare.
+      * @param <codFisc>     Il Codice Fiscale dell'utente da registrare.
+      * @param <email>       L'Email dell'utente da registrare.
+      * @param <userID>      Il UserID dell'utente da registrare.
+      * @param <password>    La Password dell'utente da registrare.
       * @return true se la registrazione ha successo, false altrimenti.
       */
     private static boolean salvaCredenziali(String nomeCognome, String codFisc, String email, String userID, String password) {

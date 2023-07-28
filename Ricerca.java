@@ -5,14 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Ricerca {
     public static final String CSV_GEO_NAMES = "geonames-and-coordinates.csv";
     public static final String CSV_PARAMETRI_CLIMATICI = "parametri-climatici.csv";
     public static final String CSV_SEPARATOR = ";";
 
+
+
+
     public static void main(String[] args) {
         mostraMenu();
     }
+
+
 
     public static void mostraMenu() {
         Scanner scanner = new Scanner(System.in);
