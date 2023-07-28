@@ -5,21 +5,36 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * La classe Ricerca gestisce operazioni di ricerca, login e registrazione.
+ */
 
 public class Ricerca {
+
+    /** Nome file CSV con i dati di geonames e coordinate geografiche. */
+
     public static final String CSV_GEO_NAMES = "geonames-and-coordinates.csv";
+
+    /** Nome file CSV con i dati dei parametri climatici. */
+
     public static final String CSV_PARAMETRI_CLIMATICI = "parametri-climatici.csv";
+
+    /** Separatore utilizzato nel file CSV. */
+
     public static final String CSV_SEPARATOR = ";";
 
-
-
+    /**
+     * Punto di ingresso del programma, mostra il menu principale.
+     * @param <args> Argomenti passati dalla riga di comando (non utilizzati).
+     */
 
     public static void main(String[] args) {
         mostraMenu();
     }
 
-
+    /**
+     * Mostra il menu principale e gestisce la selezione dell'utente.
+     */
 
     public static void mostraMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -54,6 +69,10 @@ public class Ricerca {
             }
         }
     }
+
+    /**
+     * Gestisce la ricerca dell'area geografica in base al criterio scelto dall'utente.
+     */
 
     public static void cercaAreaGeografica() {
         Scanner scanner = new Scanner(System.in);
@@ -128,6 +147,15 @@ public class Ricerca {
         }
     }
 
+
+    /**
+     * Effettua una ricerca per denominazione e stato di appartenenza.
+     * 
+     * @param <denominazione> La denominazione dell'area geografica.
+     * @param <stato> Lo stato di appartenenza dell'area geografica.
+     * @return Una lista di risultati corrispondenti alla ricerca.
+     */
+
     private static List<String[]> ricercaPerDenominazione(String denominazione, String stato) {
         List<String[]> risultati = new ArrayList<>();
 
@@ -152,6 +180,13 @@ public class Ricerca {
 
         return risultati;
     }
+    
+    /**
+     * Effettua una ricerca per coordinate geografiche.
+     * 
+     * @param <coordinate> Le coordinate geografiche da cercare.
+     * @return Una lista di risultati corrispondenti alla ricerca.
+     */
 
     private static List<String[]> ricercaPerCoordinate(String coordinate) {
         List<String[]> risultati = new ArrayList<>();
@@ -177,6 +212,12 @@ public class Ricerca {
 
         return risultati;
     }
+
+    /**
+     * Visualizza i parametri climatici per un geoname specifico.
+     * 
+     * @param <geoname> Il geoname per cui visualizzare i parametri climatici.
+     */
 
     private static void visualizzaParametriClimatici(String geoname) {
         List<String[]> parametriClimatici = getParametriClimatici(geoname);
@@ -209,6 +250,13 @@ public class Ricerca {
             }
         }
     }
+
+    /**
+     * Ottiene i parametri climatici per un geoname specifico.
+     * 
+     * @param <geoname> Il geoname per cui ottenere i parametri climatici.
+     * @return Una lista di risultati corrispondenti ai parametri climatici.
+     */
 
     private static List<String[]> getParametriClimatici(String geoname) {
         List<String[]> risultati = new ArrayList<>();
